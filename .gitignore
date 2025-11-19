@@ -1,0 +1,15 @@
+# Dependencies
+node_modules/
+
+# Data
+data/
+
+# IDE
+.idea/
+.vscode/
+
+# OS
+.DS_Store
+
+# Logs
+*.log
