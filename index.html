@@ -4,11 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="description" content="ICU Tech Sign In Portal">
+<meta name="theme-color" content="#4361ee">
+<link rel="preconnect" href="http://isapi.mekashron.com">
+<link rel="dns-prefetch" href="http://isapi.mekashron.com">
 <title>Sign In - ICU Tech</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#f8fafc;min-height:100vh;line-height:1.5}
-.n{background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.08);padding:1rem 0}
+body{font-family:system-ui,-apple-system,sans-serif;background:#f8fafc;min-height:100vh;line-height:1.5;-webkit-font-smoothing:antialiased}
+.n{background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.08);padding:1rem 0;contain:layout}
 .c{max-width:1140px;margin:0 auto;padding:0 1rem;display:flex;align-items:center;justify-content:space-between}
 .l{font-weight:700;font-size:1.5rem;color:#1e293b;text-decoration:none}
 .m{display:flex;list-style:none;gap:1.5rem}
@@ -16,22 +19,21 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
 .m a:hover{color:#4361ee}
 .mt{display:none;background:none;border:1px solid #e5e7eb;padding:.4rem;border-radius:4px;cursor:pointer}
 .mt span{display:block;width:1.25rem;height:2px;background:#374151;margin:4px 0}
-.w{display:flex;align-items:center;justify-content:center;min-height:calc(100vh - 60px);padding:1.5rem 1rem}
-.f{background:#fff;border-radius:16px;box-shadow:0 10px 40px rgba(0,0,0,.08);padding:2rem;width:100%;max-width:400px}
+.w{display:flex;align-items:center;justify-content:center;min-height:calc(100vh - 60px);padding:1.5rem 1rem;contain:layout}
+.f{background:#fff;border-radius:16px;box-shadow:0 10px 40px rgba(0,0,0,.08);padding:2rem;width:100%;max-width:400px;contain:content}
 .f h1{font-size:1.75rem;text-align:center;color:#1e293b;margin-bottom:1.5rem}
 .g{margin-bottom:1rem}
 .g label{display:block;font-weight:500;color:#374151;margin-bottom:.4rem;font-size:.9rem}
-.g input{width:100%;border:2px solid #e5e7eb;border-radius:8px;padding:.7rem .9rem;font-size:1rem;transition:border-color .2s}
+.g input{width:100%;border:2px solid #e5e7eb;border-radius:8px;padding:.7rem .9rem;font-size:1rem;font-family:inherit}
 .g input:focus{outline:none;border-color:#4361ee}
-.b{background:#4361ee;color:#fff;border:none;border-radius:8px;padding:.8rem;width:100%;font-size:1rem;font-weight:600;cursor:pointer;transition:background .2s,transform .1s;margin-top:.5rem}
+.b{background:#4361ee;color:#fff;border:none;border-radius:8px;padding:.8rem;width:100%;font-size:1rem;font-weight:600;cursor:pointer;margin-top:.5rem;font-family:inherit}
 .b:hover{background:#3a56d4}
 .b:active{transform:scale(.98)}
-.b:disabled{background:#94a3b8;cursor:not-allowed}
+.b:disabled{background:#94a3b8;cursor:not-allowed;transform:none}
 .a{border-radius:8px;padding:.8rem;margin-bottom:1rem;display:none;font-size:.9rem}
 .s{background:#ecfdf5;border:1px solid #a7f3d0;color:#065f46}
 .e{background:#fef2f2;border:1px solid #fecaca;color:#991b1b}
-.a.v{display:block;animation:si .3s ease}
-@keyframes si{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:translateY(0)}}
+.a.v{display:block}
 .sp{display:inline-block;width:.9rem;height:.9rem;border:2px solid #fff;border-top-color:transparent;border-radius:50%;animation:sp .6s linear infinite;margin-right:.4rem;vertical-align:middle}
 @keyframes sp{to{transform:rotate(360deg)}}
 @media(max-width:768px){.mt{display:block}.mc{display:none;position:absolute;top:100%;left:0;right:0;background:#fff;padding:1rem;box-shadow:0 4px 10px rgba(0,0,0,.1)}.mc.v{display:block}.m{flex-direction:column;gap:.5rem}.n{position:relative}.f{padding:1.5rem}}
@@ -40,29 +42,23 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
 <body>
 <nav class="n"><div class="c">
 <a href="#" class="l">ICU Tech</a>
-<button class="mt" onclick="document.getElementById('mc').classList.toggle('v')" aria-label="Menu"><span></span><span></span><span></span></button>
-<div id="mc" class="mc"><ul class="m"><li><a href="#">Home</a></li><li><a href="#">Features</a></li><li><a href="#">Support</a></li></ul></div>
+<button class="mt" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="mc"><span></span><span></span><span></span></button>
+<div id="mc" class="mc"><ul class="m" role="navigation"><li><a href="#">Home</a></li><li><a href="#">Features</a></li><li><a href="#">Support</a></li></ul></div>
 </div></nav>
 <main class="w"><div class="f">
 <h1>Sign In</h1>
-<div id="sm" class="a s"><strong>Success!</strong><div id="sd"></div></div>
-<div id="em" class="a e"><strong>Error!</strong> <span id="ed"></span></div>
-<form id="lf" onsubmit="return doLogin(event)">
-<div class="g"><label for="u">Username</label><input type="text" id="u" required autocomplete="username" placeholder="Enter username"></div>
-<div class="g"><label for="p">Password</label><input type="password" id="p" required autocomplete="current-password" placeholder="Enter password"></div>
+<div id="sm" class="a s" role="alert"><strong>Success!</strong><div id="sd"></div></div>
+<div id="em" class="a e" role="alert"><strong>Error!</strong> <span id="ed"></span></div>
+<form id="lf">
+<div class="g"><label for="u">Username</label><input type="text" id="u" name="username" required autocomplete="username" placeholder="Enter username"></div>
+<div class="g"><label for="p">Password</label><input type="password" id="p" name="password" required autocomplete="current-password" placeholder="Enter password"></div>
 <button type="submit" class="b" id="sb">Sign In</button>
 </form>
 </div></main>
 <script>
-const U='http://isapi.mekashron.com/icu-tech/icutech-test.dll/soap/IICUTech',A='urn:ICUTech.Intf-IICUTech#Login';
-function esc(s){return s.replace(/[<>&'"]/g,c=>({'<':'&lt;','>':'&gt;','&':'&amp;',"'":'&apos;','"':'&quot;'})[c])}
-function env(u,p){return`<?xml version="1.0" encoding="UTF-8"?><soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"><soap:Body><Login xmlns="urn:ICUTech.Intf-IICUTech"><UserName xsi:type="xsd:string">${esc(u)}</UserName><Password xsi:type="xsd:string">${esc(p)}</Password><IPs xsi:type="xsd:string"></IPs></Login></soap:Body></soap:Envelope>`}
-function hide(){document.getElementById('sm').classList.remove('v');document.getElementById('em').classList.remove('v')}
-function ok(h){hide();document.getElementById('sd').innerHTML=h;document.getElementById('sm').classList.add('v')}
-function err(m){hide();document.getElementById('ed').textContent=m;document.getElementById('em').classList.add('v')}
-function load(l){const b=document.getElementById('sb');b.disabled=l;b.innerHTML=l?'<span class="sp"></span>Signing in...':'Sign In'}
-function fmt(r){try{const d=JSON.parse(r.trim());if(d.ResultCode!==undefined&&d.ResultCode<0)return{ok:0,m:d.ResultMessage||'Login failed'};let h='<div style="margin-top:.4rem">';const id=d.EntityID||d.EntityId;if(id)h+=`<div><b>Entity ID:</b> ${id}</div>`;if(d.Email)h+=`<div><b>Email:</b> ${d.Email}</div>`;if(d.FirstName||d.LastName)h+=`<div><b>Name:</b> ${d.FirstName||''} ${d.LastName||''}</div>`;if(d.Mobile)h+=`<div><b>Mobile:</b> ${d.Mobile}</div>`;h+='</div>';return{ok:1,h}}catch(e){return r.toLowerCase().match(/error|invalid|fail|not found/)?{ok:0,m:r}:{ok:1,h:`<div style="margin-top:.4rem">${r}</div>`}}}
-async function doLogin(e){e.preventDefault();const u=document.getElementById('u').value.trim(),p=document.getElementById('p').value;if(!u||!p){err('Please fill in all fields');return false}hide();load(1);try{const r=await fetch(U,{method:'POST',headers:{'Content-Type':'text/xml;charset=utf-8','SOAPAction':A},body:env(u,p)});if(!r.ok)throw new Error('HTTP '+r.status);const x=await r.text(),m=x.match(/<return[^>]*>([^<]*)<\/return>/);if(!m)throw new Error('Invalid response');const f=fmt(m[1]);f.ok?ok(f.h):err(f.m)}catch(x){err(x.message||'Connection error')}finally{load(0)}return false}
+const U='http://isapi.mekashron.com/icu-tech/icutech-test.dll/soap/IICUTech',A='urn:ICUTech.Intf-IICUTech#Login',X=s=>s.replace(/[<>&'"]/g,c=>({'<':'&lt;','>':'&gt;','&':'&amp;',"'":'&apos;','"':'&quot;'})[c]);
+document.getElementById('lf').onsubmit=async e=>{e.preventDefault();const u=document.getElementById('u').value.trim(),p=document.getElementById('p').value,b=document.getElementById('sb'),sm=document.getElementById('sm'),em=document.getElementById('em');if(!u||!p){sm.classList.remove('v');em.classList.add('v');document.getElementById('ed').textContent='Please fill in all fields';return}sm.classList.remove('v');em.classList.remove('v');b.disabled=1;b.innerHTML='<span class="sp"></span>Signing in...';try{const r=await fetch(U,{method:'POST',headers:{'Content-Type':'text/xml;charset=utf-8','SOAPAction':A},body:`<?xml version="1.0"?><soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"><soap:Body><Login xmlns="urn:ICUTech.Intf-IICUTech"><UserName xsi:type="xsd:string">${X(u)}</UserName><Password xsi:type="xsd:string">${X(p)}</Password><IPs xsi:type="xsd:string"></IPs></Login></soap:Body></soap:Envelope>`});if(!r.ok)throw Error('HTTP '+r.status);const t=await r.text(),m=t.match(/<return[^>]*>([^<]*)<\/return>/);if(!m)throw Error('Invalid response');const d=JSON.parse(m[1].trim());if(d.ResultCode<0){em.classList.add('v');document.getElementById('ed').textContent=d.ResultMessage||'Login failed'}else{let h='<div style="margin-top:.4rem">';const i=d.EntityId||d.EntityID;if(i)h+=`<div><b>Entity ID:</b> ${i}</div>`;if(d.Email)h+=`<div><b>Email:</b> ${d.Email}</div>`;if(d.FirstName)h+=`<div><b>Name:</b> ${d.FirstName} ${d.LastName||''}</div>`;if(d.Mobile)h+=`<div><b>Mobile:</b> ${d.Mobile}</div>`;document.getElementById('sd').innerHTML=h+'</div>';sm.classList.add('v')}}catch(x){em.classList.add('v');document.getElementById('ed').textContent=x.message||'Connection error'}b.disabled=0;b.textContent='Sign In'};
+document.querySelector('.mt').onclick=function(){const m=document.getElementById('mc');m.classList.toggle('v');this.setAttribute('aria-expanded',m.classList.contains('v'))}
 </script>
 </body>
 </html>
