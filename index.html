@@ -3,62 +3,60 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="ICU Tech Sign In Portal">
+<meta name="description" content="Sign in to ICU Tech portal. Secure access to your account with username and password authentication.">
+<meta name="robots" content="index,follow">
 <meta name="theme-color" content="#4361ee">
-<link rel="preconnect" href="http://isapi.mekashron.com">
-<link rel="dns-prefetch" href="http://isapi.mekashron.com">
-<title>Sign In - ICU Tech</title>
+<link rel="canonical" href="https://icutech.com/signin">
+<link rel="preconnect" href="//isapi.mekashron.com">
+<title>Sign In | ICU Tech</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:system-ui,-apple-system,sans-serif;background:#f8fafc;min-height:100vh;line-height:1.5;-webkit-font-smoothing:antialiased}
-.n{background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.08);padding:1rem 0;contain:layout}
+body{font:400 16px/1.5 system-ui,-apple-system,sans-serif;background:#f8fafc;min-height:100vh}
+nav{background:#fff;box-shadow:0 1px 3px #0000000d;padding:1rem 0}
 .c{max-width:1140px;margin:0 auto;padding:0 1rem;display:flex;align-items:center;justify-content:space-between}
 .l{font-weight:700;font-size:1.5rem;color:#1e293b;text-decoration:none}
-.m{display:flex;list-style:none;gap:1.5rem}
-.m a{color:#64748b;text-decoration:none;font-weight:500}
-.m a:hover{color:#4361ee}
-.mt{display:none;background:none;border:1px solid #e5e7eb;padding:.4rem;border-radius:4px;cursor:pointer}
-.mt span{display:block;width:1.25rem;height:2px;background:#374151;margin:4px 0}
-.w{display:flex;align-items:center;justify-content:center;min-height:calc(100vh - 60px);padding:1.5rem 1rem;contain:layout}
-.f{background:#fff;border-radius:16px;box-shadow:0 10px 40px rgba(0,0,0,.08);padding:2rem;width:100%;max-width:400px;contain:content}
-.f h1{font-size:1.75rem;text-align:center;color:#1e293b;margin-bottom:1.5rem}
-.g{margin-bottom:1rem}
-.g label{display:block;font-weight:500;color:#374151;margin-bottom:.4rem;font-size:.9rem}
-.g input{width:100%;border:2px solid #e5e7eb;border-radius:8px;padding:.7rem .9rem;font-size:1rem;font-family:inherit}
-.g input:focus{outline:none;border-color:#4361ee}
-.b{background:#4361ee;color:#fff;border:none;border-radius:8px;padding:.8rem;width:100%;font-size:1rem;font-weight:600;cursor:pointer;margin-top:.5rem;font-family:inherit}
-.b:hover{background:#3a56d4}
-.b:active{transform:scale(.98)}
-.b:disabled{background:#94a3b8;cursor:not-allowed;transform:none}
-.a{border-radius:8px;padding:.8rem;margin-bottom:1rem;display:none;font-size:.9rem}
+ul{display:flex;list-style:none;gap:1.5rem}
+nav a{color:#64748b;text-decoration:none;font-weight:500}
+.mt{display:none}
+main{display:flex;align-items:center;justify-content:center;min-height:calc(100vh - 60px);padding:1rem}
+.f{background:#fff;border-radius:16px;box-shadow:0 10px 40px #00000014;padding:2rem;width:100%;max-width:400px}
+h1{font-size:1.75rem;text-align:center;color:#1e293b;margin-bottom:1.5rem}
+label{display:block;font-weight:500;color:#374151;margin-bottom:.4rem;font-size:.875rem}
+input{width:100%;border:2px solid #e5e7eb;border-radius:8px;padding:.75rem;font:inherit;margin-bottom:1rem}
+input:focus{outline:none;border-color:#4361ee}
+button{background:#4361ee;color:#fff;border:0;border-radius:8px;padding:.875rem;width:100%;font:600 1rem system-ui;cursor:pointer}
+button:disabled{background:#94a3b8;cursor:default}
+.a{border-radius:8px;padding:.75rem;margin-bottom:1rem;display:none;font-size:.875rem}
 .s{background:#ecfdf5;border:1px solid #a7f3d0;color:#065f46}
 .e{background:#fef2f2;border:1px solid #fecaca;color:#991b1b}
-.a.v{display:block}
-.sp{display:inline-block;width:.9rem;height:.9rem;border:2px solid #fff;border-top-color:transparent;border-radius:50%;animation:sp .6s linear infinite;margin-right:.4rem;vertical-align:middle}
-@keyframes sp{to{transform:rotate(360deg)}}
-@media(max-width:768px){.mt{display:block}.mc{display:none;position:absolute;top:100%;left:0;right:0;background:#fff;padding:1rem;box-shadow:0 4px 10px rgba(0,0,0,.1)}.mc.v{display:block}.m{flex-direction:column;gap:.5rem}.n{position:relative}.f{padding:1.5rem}}
+.v{display:block}
+.sp{display:inline-block;width:1rem;height:1rem;border:2px solid #fff;border-top-color:transparent;border-radius:50%;animation:r .6s linear infinite;vertical-align:middle;margin-right:.5rem}
+@keyframes r{to{transform:rotate(1turn)}}
+@media(max-width:768px){.mt{display:block;background:0 0;border:1px solid #e5e7eb;padding:.5rem;border-radius:4px}.mt i{display:block;width:1.25rem;height:2px;background:#374151;margin:4px 0}.mc{display:none;position:absolute;top:100%;left:0;right:0;background:#fff;padding:1rem;box-shadow:0 4px 10px #0000001a}.mc.v{display:block}ul{flex-direction:column;gap:.5rem}nav{position:relative}.f{padding:1.5rem}}
 </style>
 </head>
 <body>
-<nav class="n"><div class="c">
-<a href="#" class="l">ICU Tech</a>
-<button class="mt" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="mc"><span></span><span></span><span></span></button>
-<div id="mc" class="mc"><ul class="m" role="navigation"><li><a href="#">Home</a></li><li><a href="#">Features</a></li><li><a href="#">Support</a></li></ul></div>
+<nav><div class="c">
+<a href="/" class="l">ICU Tech</a>
+<button class="mt" type="button" aria-label="Menu"><i></i><i></i><i></i></button>
+<div id="mc" class="mc"><ul><li><a href="/">Home</a></li><li><a href="/features">Features</a></li><li><a href="/support">Support</a></li></ul></div>
 </div></nav>
-<main class="w"><div class="f">
+<main><div class="f">
 <h1>Sign In</h1>
-<div id="sm" class="a s" role="alert"><strong>Success!</strong><div id="sd"></div></div>
-<div id="em" class="a e" role="alert"><strong>Error!</strong> <span id="ed"></span></div>
-<form id="lf">
-<div class="g"><label for="u">Username</label><input type="text" id="u" name="username" required autocomplete="username" placeholder="Enter username"></div>
-<div class="g"><label for="p">Password</label><input type="password" id="p" name="password" required autocomplete="current-password" placeholder="Enter password"></div>
-<button type="submit" class="b" id="sb">Sign In</button>
+<div id="s" class="a s" role="status"></div>
+<div id="e" class="a e" role="alert"></div>
+<form id="f">
+<label for="u">Username</label>
+<input type="text" id="u" name="username" required autocomplete="username">
+<label for="p">Password</label>
+<input type="password" id="p" name="password" required autocomplete="current-password">
+<button type="submit" id="b">Sign In</button>
 </form>
 </div></main>
 <script>
-const U='http://isapi.mekashron.com/icu-tech/icutech-test.dll/soap/IICUTech',A='urn:ICUTech.Intf-IICUTech#Login',X=s=>s.replace(/[<>&'"]/g,c=>({'<':'&lt;','>':'&gt;','&':'&amp;',"'":'&apos;','"':'&quot;'})[c]);
-document.getElementById('lf').onsubmit=async e=>{e.preventDefault();const u=document.getElementById('u').value.trim(),p=document.getElementById('p').value,b=document.getElementById('sb'),sm=document.getElementById('sm'),em=document.getElementById('em');if(!u||!p){sm.classList.remove('v');em.classList.add('v');document.getElementById('ed').textContent='Please fill in all fields';return}sm.classList.remove('v');em.classList.remove('v');b.disabled=1;b.innerHTML='<span class="sp"></span>Signing in...';try{const r=await fetch(U,{method:'POST',headers:{'Content-Type':'text/xml;charset=utf-8','SOAPAction':A},body:`<?xml version="1.0"?><soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"><soap:Body><Login xmlns="urn:ICUTech.Intf-IICUTech"><UserName xsi:type="xsd:string">${X(u)}</UserName><Password xsi:type="xsd:string">${X(p)}</Password><IPs xsi:type="xsd:string"></IPs></Login></soap:Body></soap:Envelope>`});if(!r.ok)throw Error('HTTP '+r.status);const t=await r.text(),m=t.match(/<return[^>]*>([^<]*)<\/return>/);if(!m)throw Error('Invalid response');const d=JSON.parse(m[1].trim());if(d.ResultCode<0){em.classList.add('v');document.getElementById('ed').textContent=d.ResultMessage||'Login failed'}else{let h='<div style="margin-top:.4rem">';const i=d.EntityId||d.EntityID;if(i)h+=`<div><b>Entity ID:</b> ${i}</div>`;if(d.Email)h+=`<div><b>Email:</b> ${d.Email}</div>`;if(d.FirstName)h+=`<div><b>Name:</b> ${d.FirstName} ${d.LastName||''}</div>`;if(d.Mobile)h+=`<div><b>Mobile:</b> ${d.Mobile}</div>`;document.getElementById('sd').innerHTML=h+'</div>';sm.classList.add('v')}}catch(x){em.classList.add('v');document.getElementById('ed').textContent=x.message||'Connection error'}b.disabled=0;b.textContent='Sign In'};
-document.querySelector('.mt').onclick=function(){const m=document.getElementById('mc');m.classList.toggle('v');this.setAttribute('aria-expanded',m.classList.contains('v'))}
+const f=document.getElementById('f'),b=document.getElementById('b'),s=document.getElementById('s'),e=document.getElementById('e');
+f.onsubmit=async v=>{v.preventDefault();const u=document.getElementById('u').value.trim(),p=document.getElementById('p').value;s.classList.remove('v');e.classList.remove('v');if(!u||!p){e.textContent='Please fill in all fields';e.classList.add('v');return}b.disabled=1;b.innerHTML='<span class="sp"></span>Signing in...';try{const r=await fetch('http://isapi.mekashron.com/icu-tech/icutech-test.dll/soap/IICUTech',{method:'POST',headers:{'Content-Type':'text/xml','SOAPAction':'urn:ICUTech.Intf-IICUTech#Login'},body:`<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"><soap:Body><Login xmlns="urn:ICUTech.Intf-IICUTech"><UserName>${u.replace(/[<>&]/g,c=>({'<':'&lt;','>':'&gt;','&':'&amp;'})[c])}</UserName><Password>${p.replace(/[<>&]/g,c=>({'<':'&lt;','>':'&gt;','&':'&amp;'})[c])}</Password><IPs></IPs></Login></soap:Body></soap:Envelope>`});const t=await r.text(),m=t.match(/<return[^>]*>([^<]*)<\/return>/);if(!m)throw 0;const d=JSON.parse(m[1]);if(d.ResultCode<0)throw d.ResultMessage;s.innerHTML='<b>Success!</b><br>Entity ID: '+(d.EntityId||d.EntityID)+'<br>Email: '+d.Email+'<br>Name: '+d.FirstName+' '+(d.LastName||'');s.classList.add('v')}catch(x){e.textContent=x||'Connection error';e.classList.add('v')}b.disabled=0;b.textContent='Sign In'};
+document.querySelector('.mt')?.addEventListener('click',()=>document.getElementById('mc').classList.toggle('v'))
 </script>
 </body>
 </html>
